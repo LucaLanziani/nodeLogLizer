@@ -16,6 +16,9 @@ exports.conf = {
 				auth : false,
 				user : "",
 				pass : ""
+			},
+			"sample.js" : {
+				foo : "bar"
 			}
 		}
 	}

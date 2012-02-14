@@ -1,3 +1,5 @@
+require("./lib/extends.js");														// require extends 
+
 /* globals */
 global.LogLizer_regexp = require("./lib/loglizer-regexp.js").LogLizer_regexp;		// require extended regexp class
 /* end globals require */
