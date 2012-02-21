@@ -8,16 +8,27 @@ exports.conf = {
 		
 	}],
 	
-	globals : {	
+	globals : {
+		web : {
+			bind : "0.0.0.0",
+			port : 8080,
+			views : __dirname + "/web/views/",
+			public : __dirname + "/web/public/"
+		},
+		mongodb : {
+			host : "localhost",
+			port : 27017,
+			auth : false,
+			user : "",
+			pass : ""
+		},	
 		streams : {
-			"mongo.js" : {
-				host : "localhost",
-				port : 27017,
-				auth : false,
-				user : "",
-				pass : ""
+			"sample" : {
+				dbName : "sample",
+				foo : "bar"
 			},
-			"sample.js" : {
+			"sample1" : {
+				dbName : "sample1",
 				foo : "bar"
 			}
 		}

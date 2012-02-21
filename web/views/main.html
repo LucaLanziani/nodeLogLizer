@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>express example</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				width: 100%;
+			}
+			
+			#left_menu {
+				margin: 0;
+				width: 200px;
+				height: 100%;
+				border-right: solid thin black;	
+			}
+			
+			.l_stream {
+				list-style: none;	
+			}
+		</style>
+	</head>
+	<body>
+		<div id="left_menu">
+			<ul id="u_menu">
+			<% for ( stream in LLconf.globals.streams ) { %>
+				<li class="l_stream">
+					<%= stream %>
+				</li>
+			<% } %>
+			</ul>	
+		</div>
+		<%- body %>
+	</body>
+</html>
