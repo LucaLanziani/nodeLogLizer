@@ -18,6 +18,7 @@ global.LLstreams = new LogLizer_streams(LLconf.globals);							// global instanc
 global.LLweb = new LogLizer_web(LLconf.globals);
 /* end global instance */
 
+LLconf.version = "0.1a";
 LLweb.start();
 
 var LLcores = [];																

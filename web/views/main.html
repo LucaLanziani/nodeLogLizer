@@ -5,30 +5,89 @@
 			body {
 				margin: 0;
 				width: 100%;
+				background-color: #fff;
+				font-family: "Andale Mono";
 			}
 			
-			#left_menu {
-				margin: 0;
+			#wrapper {
+				height: auto;
+			}
+			
+			#left_wrapper {
+				top: 0;
+				left: 0;
+				background-color: rgba(200, 200, 200, 0.2);
 				width: 200px;
+				height: auto;
+				border-right: solid thin #282800;
+				position: fixed;
 				height: 100%;
-				border-right: solid thin black;	
+			}
+			
+			#u_menu {
+				top: 0;
+				left: 0;
+				font-size: 15px;
+			}
+			
+			#desc_left {
+				bottom: 10px;
+				left: 30px;
+				font-size: 10px;
+				position: absolute;
+			}
+			
+			#right_wrapper {
+				margin-left: 250px;
+			}
+			
+			#logo {
+				width: 200px;
+				height: 150px;
+				background-image: url(images/nll_logo.png);
 			}
 			
 			.l_stream {
-				list-style: none;	
+				margin: 0 0 0 -40px;
+				list-style: none;
+				width: 200px;
+			}
+			
+			.l_stream:hover {
+				background-color: #E8E8E8;
+			}
+			
+			.a_stream {
+				text-decoration: none;
+				color: #0066FF;
+				margin: 0 0 0 10px;
 			}
 		</style>
 	</head>
 	<body>
-		<div id="left_menu">
-			<ul id="u_menu">
-			<% for ( stream in LLconf.globals.streams ) { %>
-				<li class="l_stream">
-					<%= stream %>
-				</li>
-			<% } %>
-			</ul>	
+		<div id="wrapper">
+			<div id="left_wrapper">
+				<div id="logo"></div>
+				<ul id="u_menu">
+					<li class="l_stream">
+						<a class="a_stream" href="/home">Home</a>
+					</li>
+				<% for ( stream in LLconf.globals.streams ) { %>
+					<li class="l_stream">
+						<a class="a_stream" href="/streams/<%= stream %>"><%= stream %></a>
+					</li>
+				<% } %>
+				</ul>
+				<div id="desc_left">
+					NodeLogLizer v.<%= LLconf.version %>
+				</div>	
+			</div>
+			<div id="right_wrapper">
+				<%- body %>
+				<% for ( i=0; i<1000; i++ ) { %>
+					riempimento<br />
+				<% } %>
+			</div>
 		</div>
-		<%- body %>
 	</body>
 </html>
