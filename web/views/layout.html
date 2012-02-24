@@ -1,0 +1,155 @@
+<html>
+	<head>
+		<title>NLL : NodeLogLizer</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var stream = '<%- stream %>';
+			var substream = '<%- substream %>';
+
+			if ( stream == '' )
+				stream = "home";
+			
+		</script>
+		
+		<script type="text/javascript"> //da inserire in script esterno
+			$(document).ready(function(){
+				$(".l_stream").each(function(){
+						if ( $(this).attr("stream") == stream ){
+							$(this).addClass("selected_stream");
+							$(this).children("ul").removeClass("c_hidden");
+							$(this).find(".u_submenu .l_substream").each(function(){
+								console.log($(this));
+								if ( $(this).attr("substream") == substream )
+									$(this).addClass("selected_substream");
+							});
+						}
+				});
+			});
+			
+		</script>
+		<style type="text/css">
+			body {
+				margin: 0;
+				width: 100%;
+				background-color: #fff;
+				font-family: "Andale Mono";
+			}
+			
+			#wrapper {
+				height: auto;
+			}
+			
+			#left_wrapper {
+				top: 0;
+				left: 0;
+				background-color: rgba(200, 200, 200, 0.2);
+				width: 200px;
+				height: auto;
+				border-right: solid thin #282800;
+				position: fixed;
+				height: 100%;
+			}
+			
+			#u_menu, .u_submenu {
+				top: 0;
+				left: 0;
+				font-size: 15px;
+			}
+			
+			#desc_left {
+				bottom: 10px;
+				left: 30px;
+				font-size: 10px;
+				position: absolute;
+			}
+			
+			#right_wrapper {
+				margin-left: 250px;
+			}
+			
+			#logo {
+				width: 200px;
+				height: 150px;
+				background-image: url(/images/nll_logo.png);
+			}
+			
+			.l_stream {
+				margin: 0 0 0 -40px;
+				list-style: none;
+				width: 200px;
+			}
+			
+			.l_stream:hover {
+				background-color: #E8E8E8;
+			}
+			
+			.l_substream:hover {
+				background-color: #F8F8F8;
+			}
+
+			
+			.l_substream {
+				list-style: none;
+			}
+			
+			.a_stream {
+				text-decoration: none;
+				color: #0066FF;
+				margin: 0 0 0 10px;
+			}
+			
+			.c_hidden {
+				display: none;
+			}
+			
+			.selected_stream {
+				background-color: #E8E8E8;
+			}
+			
+			.selected_substream {
+				background-color: #F8F8F8;
+			} 
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="left_wrapper">
+				<div id="logo"></div>
+				<ul id="u_menu">
+					<li class="l_stream" stream="home">
+						<a class="a_stream" href="/home">Home</a>
+						<ul class="u_submenu c_hidden">
+							<li class="l_substream" substream="dashboard">
+								<a class="a_stream" href="/dashboard">DashBoard</a>
+							</li>
+							<li class="l_substream" substream="settings">
+								<a class="a_stream" href="/settings">Settings</a>
+							</li>
+						</ul>
+					</li>
+				<% for ( s in LLconf.globals.streams ) { %>
+					<li class="l_stream" stream="<%= s %>">
+						<a class="a_stream" href="/streams/<%= s %>"><%= s %></a>
+						<ul class="u_submenu c_hidden">
+							<% for ( sm in LLweb.submenu[s] ) { %>
+								<li class="l_substream" substream="<%= LLweb.submenu[s][sm] %>">
+									<a class="a_stream" href="/streams/<%= s %>/<%= LLweb.submenu[s][sm] %>"><%= LLweb.submenu[s][sm] %></a>
+								</li>
+							<% } %>
+						</ul>
+					</li>
+				<% } %>
+				</ul>
+				<div id="desc_left">
+					NodeLogLizer v.<%= LLconf.version %>
+				</div>	
+			</div>
+			<div id="right_wrapper">
+				<%- body %>
+				<% /*for ( i=0; i<1000; i++ ) { %>
+					riempimento<br />
+				<% }*/ %>
+			</div>
+		</div>
+	</body>
+</html>

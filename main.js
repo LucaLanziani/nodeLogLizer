@@ -7,15 +7,15 @@ global.LLconf = require("./conf.js").conf;												// require configuration f
 
 /* not globals */
 var LogLizer_core = require("./lib/loglizer-core.js").LogLizer_core;				// require core class
-var LogLizer_streams = require("./lib/loglizer-streams.js").LogLizer_streams;		// require streams class
 var LogLizer_web = require("./lib/loglizer-web.js").LogLizer_web;					// require web class
 var LogLizer_utils = require("./lib/loglizer-utils.js").LogLizer_utils;				// require utils class
+var LogLizer_streams = require("./lib/loglizer-streams.js").LogLizer_streams;		// require streams class
 /* end local require */
 
 /* global instance */
 global.LLutils = new LogLizer_utils();												// global instance for utils
+global.LLweb = new LogLizer_web(LLconf.globals);									// global instance for web server
 global.LLstreams = new LogLizer_streams(LLconf.globals);							// global instance for streams
-global.LLweb = new LogLizer_web(LLconf.globals);
 /* end global instance */
 
 LLconf.version = "0.1a";

@@ -11,7 +11,7 @@ exports.conf = {
 	globals : {
 		web : {
 			bind : "0.0.0.0",
-			port : 8080,
+			port : 80,
 			views : __dirname + "/web/views/",
 			public : __dirname + "/web/public/"
 		},
