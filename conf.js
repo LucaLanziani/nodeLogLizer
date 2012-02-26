@@ -30,6 +30,10 @@ exports.conf = {
 			"sample1" : {
 				dbName : "sample1",
 				foo : "bar"
+			},
+			"sample2" : {
+				dbName : "sample1",
+				foo : "bar"
 			}
 		}
 	}
