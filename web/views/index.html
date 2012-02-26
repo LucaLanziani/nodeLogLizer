@@ -1,1 +1,32 @@
-<p>  </p>
+<link type="text/css" rel="stylesheet" href="/css/index.css"></link>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$.getJSON("/index.json", function(data){
+			to_append = '';
+			for ( i in data ){
+				to_append += '<li class="l_logs"> ' +
+								new Date(data[i].time_local) + " " + 
+								data[i].request.uri + '</li>';
+			}
+			$(".u_logs").html(to_append);
+		});
+				
+		var socket = io.connect();
+  		socket.on('log', function (data) {
+    		to_append = '<li class="l_logs"> ' +
+							new Date(data.time_local) + " " + 
+							data.request.uri + '</li>';
+			$(".u_logs").append(to_append);
+  		});
+	});
+</script>
+<div id="index_desc">
+	Welcome to nodeLogLizer Home Page. You can see your sites statistic, with our or your custom stream plugin.<br />
+</div>
+
+<div id="logs">
+	<ul class='u_logs'>
+	</ul>
+</div>

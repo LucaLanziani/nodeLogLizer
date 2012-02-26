@@ -1,7 +1,9 @@
 <html>
 	<head>
 		<title>LL : nodeLogLizer</title>
+		<link type="text/css" rel="stylesheet" href="/css/layout.css"></link>
 		
+		<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript">
 			var menu = '<%- menu %>';
 			var submenu = '<%- submenu %>';
@@ -10,9 +12,6 @@
 			if ( menu == '' )
 				menu = "home";
 		</script>
-		
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<link type="text/css" rel="stylesheet" href="/css/nll_style.css"></link>
 		<script type="text/javascript" src="/js/main.js" ></script>
 		
 	</head>
@@ -63,7 +62,7 @@
 				</ul>
 
 				<div id="desc_left">
-					NodeLogLizer v.<%= LLconf.version %>
+					nodeLogLizer v.<%= LLconf.version %>
 				</div>	
 			</div>
 			<div id="right_wrapper">

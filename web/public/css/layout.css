@@ -1,0 +1,124 @@
+body {
+	margin: 0;
+	width: 100%;
+	background-color: #fff;
+	font-family: "Andale Mono";
+	font-size: 12px;
+}
+
+#wrapper {
+	height: auto;
+}
+
+#left_wrapper {
+	top: 0;
+	left: 0;
+	background-color: #F8F8F8;
+	width: 200px;
+	height: auto;
+	border-right: solid thin #282800;
+	position: fixed;
+	height: 100%;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+}
+
+#desc_left {
+	bottom: 10px;
+	left: 30px;
+	font-size: 10px;
+	position: absolute;
+}
+
+#right_wrapper {
+	margin-left: 250px;
+	margin-top: 30px;
+}
+
+#logo {
+	width: 200px;
+	height: 150px;
+	background-image: url(/images/nll_logo.png);
+}
+
+/* main menu */
+.u_menu {
+	top: 0;
+	left: 0;
+	font-size: 15px;
+	list-style: none;
+}
+
+.l_menu {
+	margin: 0 0 0 -40px;
+	width: 200px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.l_menu:hover {
+	background-color: #E8E8E8;
+}
+/* end main menu */
+
+/* submenus */
+.u_submenu {
+	top: 0;
+	left: 0;
+	background-color: #0066FF
+	font-size: 15px;
+	list-style: none;
+}
+
+.l_submenu {
+	margin: 0 0 0 -40px;
+	width: 200px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.l_submenu:hover {
+	background-color: #C8C8C8;
+}
+
+.l_substream {
+	margin: 0 0 0 -40px;
+	width: 200px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.l_substream:hover {
+	background-color: #A8A8A8;
+}
+/* end submenus */
+
+.a_menu {
+	text-decoration: none;
+	color: #0066FF;
+	margin: 0 0 0 10px;
+}
+
+.a_submenu {
+	text-decoration: none;
+	color: #0066FF;
+	margin: 0 0 0 20px;
+}
+
+.a_submenu_stream {
+	text-decoration: none;
+	color: #0066FF;
+	margin: 0 0 0 40px;
+}
+
+.selected_menu {
+	background-color: #E8E8E8;
+}
+
+.selected_submenu {
+	background-color: #C8C8C8;
+}
+
+.selected_substream {
+	background-color: #A8A8A8;
+} 

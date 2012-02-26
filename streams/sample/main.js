@@ -8,7 +8,6 @@ var LogLizer_stream = function(conf){
 }
 
 LogLizer_stream.prototype.main = function(conf, data, callback){
-	console.log(data);
 	LLdb.insert(this.conf.dbName, data);
 }
 
