@@ -8,15 +8,16 @@ var LogLizer_stream = function(conf){
 }
 
 LogLizer_stream.prototype.main = function(conf, data, callback){
-	callback(this.conf.dbName, data);
+	console.log(data);
+	LLdb.insert(this.conf.dbName, data);
 }
 
 LogLizer_stream.prototype.web = {
 	"substream" : function(req, res){
-		res.render(__dirname + "/views/substream");	
+		res.render(__dirname + "/web/views/substream");	
 	},
 	"substream1" : function(req, res){
-		res.render(__dirname + "/views/substream1");	
+		res.render(__dirname + "/web/views/substream1");	
 	},
 	"data.:json" : function(req, res){
 		res.json({ test : "mumbling"});

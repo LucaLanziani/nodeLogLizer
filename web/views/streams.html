@@ -1,0 +1,12 @@
+<% for ( s in LLconf.globals.streams ) { %>
+	<li class="" stream="<%= s %>">
+		<a class="" href="/streams/<%= s %>"><%= s %></a>
+		<ul class="">
+			<% for ( sm in LLweb.submenu[s] ) { %>
+				<li class="" substream="<%= LLweb.submenu[s][sm] %>">
+					<a class="" href="/streams/<%= s %>/<%= LLweb.submenu[s][sm] %>"><%= LLweb.submenu[s][sm] %></a>
+				</li>
+			<% } %>
+		</ul>
+	</li>
+<% } %>
