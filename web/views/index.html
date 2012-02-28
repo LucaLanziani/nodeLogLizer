@@ -6,7 +6,7 @@
 		$.getJSON("/index.json", function(data){
 			to_append = '';
 			for ( i in data ){
-				to_append += '<li class="l_logs"> ' +
+				to_append += '<li class="l_logs"> ' + data[i].LL_logname + " " +
 								new Date(data[i].time_local) + " " + 
 								data[i].request.uri + '</li>';
 			}
@@ -15,8 +15,8 @@
 				
 		var socket = io.connect();
   		socket.on('log', function (data) {
-    		to_append = '<li class="l_logs"> ' +
-							new Date(data.time_local) + " " + 
+    		to_append = '<li class="l_logs"> ' + data.LL_logname + " " +
+							new Date(data.time_local) + " " +
 							data.request.uri + '</li>';
 			$(".u_logs").append(to_append);
   		});

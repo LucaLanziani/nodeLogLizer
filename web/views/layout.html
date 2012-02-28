@@ -36,7 +36,9 @@
 						
 						<ul class="u_submenu">
 							
-						<% for ( s in LLconf.globals.streams ) { %>
+						<% for ( i in LLconf.globals.streams ) { 
+							s = LLconf.globals.streams[i];
+						%>
 						
 							<li class="l_submenu" submenu="<%= s %>">
 								<a class="a_submenu" href="/streams/<%= s %>"><%= s %></a>

@@ -1,13 +1,13 @@
 var LogLizer_stream = function(conf){
 	this.conf = conf;
-	
+
 	this.menu = [
 		"substream",
 		"substream1"
 	];
 }
 
-LogLizer_stream.prototype.main = function(conf, data, callback){
+LogLizer_stream.prototype.main = function(conf, data){
 	LLdb.insert(this.conf.dbName, data);
 }
 
