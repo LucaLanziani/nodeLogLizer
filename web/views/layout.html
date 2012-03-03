@@ -47,8 +47,8 @@
 								<ul class="u_substream">
 								
 								<% for ( sm in LLweb.submenu[s] ) { %>
-									<li class="l_substream" substream="<%= LLweb.submenu[s][sm] %>">
-										<a class="a_submenu_stream" href="/streams/<%= s %>/<%= LLweb.submenu[s][sm] %>"><%= LLweb.submenu[s][sm] %></a>
+									<li class="l_substream" substream="<%= LLweb.submenu[s][sm].url %>">
+										<a class="a_submenu_stream" href="/streams/<%= s %>/<%= LLweb.submenu[s][sm].url %>"><%= LLweb.submenu[s][sm].title %></a>
 									</li>
 								<% } %>
 									

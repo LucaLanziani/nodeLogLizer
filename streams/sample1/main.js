@@ -1,9 +1,5 @@
 var LogLizer_stream = function(conf){
 	this.conf = conf;
-	
-	this.menu = [
-		"substream"
-	];
 }
 
 LogLizer_stream.prototype.main = function(conf, data){

@@ -1,3 +1,8 @@
 {
+	"menu" : [
+		{ "title" : "sub stream", "url" : "substream" },
+		{ "title" : "sub stream", "url" : "substream1" }
+	],
+	
 	"dbName" : "sample"
 }

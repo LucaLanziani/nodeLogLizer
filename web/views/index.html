@@ -7,8 +7,9 @@
 			to_append = '';
 			for ( i in data ){
 				to_append += '<li class="l_logs"> ' + data[i].LL_logname + " " +
-								new Date(data[i].time_local) + " " + 
-								data[i].request.uri + '</li>';
+						new Date(data[i].time_local) + " " +
+						( ( typeof data[i].request == "object" ) ? data[i].request.uri : data[i].request ) + 
+						'</li>';
 			}
 			$(".u_logs").html(to_append);
 		});
@@ -16,8 +17,9 @@
 		var socket = io.connect();
   		socket.on('log', function (data) {
     		to_append = '<li class="l_logs"> ' + data.LL_logname + " " +
-							new Date(data.time_local) + " " +
-							data.request.uri + '</li>';
+						new Date(data.time_local) + " " +
+						( ( typeof data.request == "object" ) ? data.request.uri : data.request )  + 
+						'</li>';
 			$(".u_logs").append(to_append);
   		});
 	});
