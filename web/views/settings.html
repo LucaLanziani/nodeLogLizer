@@ -37,7 +37,7 @@
 		            "user": "",
 		            "pass": ""
 		        },
-		        "streams": []
+		        "streams": {}
 		    }
 		};
 		
@@ -65,9 +65,7 @@
 		}
 		
 		$(".stream_check").each(function(index){
-			tmp_stream = {};
-			tmp_stream[$(this).val()] = ( $(this).attr('checked') ) ? true : false;
-			tmp_conf.globals.streams.push(tmp_stream);
+			tmp_conf.globals.streams[$(this).val()] = { enabled : ( $(this).attr('checked') ) ? true : false };
 		});
 		
 		
@@ -84,7 +82,7 @@
 	}
     	
 	$(document).ready(function(){
-		
+
 		var conf = <%- JSON.stringify(conf) %>;
 		var last = 0;
 		
