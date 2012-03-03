@@ -6,6 +6,24 @@ body {
 	font-size: 12px;
 }
 
+input[type="button"], input[type="password"], input[type="text"], textarea {
+   	font-family: "Andale Mono";
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+    padding: 4px;
+    border: solid 1px #0066FF; 
+    background-color: #EDF2F7;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 5px;
+    height: 25px;
+    padding: 4px;
+    background-color: #EDF2F7;
+    display: block;
+}
+
 #wrapper {
 	height: auto;
 }
@@ -16,11 +34,9 @@ body {
 	background-color: #F8F8F8;
 	width: 200px;
 	height: auto;
-	border-right: solid thin #282800;
+	border-right: solid thin #EDF2F7;
 	position: fixed;
 	height: 100%;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
 }
 
 #desc_left {
@@ -31,8 +47,8 @@ body {
 }
 
 #right_wrapper {
-	margin-left: 250px;
-	margin-top: 30px;
+	margin: 30px 50px 0 250px;
+	font-size: 12px;
 }
 
 #logo {
@@ -52,8 +68,6 @@ body {
 .l_menu {
 	margin: 0 0 0 -40px;
 	width: 200px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 }
 
 .l_menu:hover {
@@ -73,8 +87,6 @@ body {
 .l_submenu {
 	margin: 0 0 0 -40px;
 	width: 200px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 }
 
 .l_submenu:hover {
@@ -84,8 +96,6 @@ body {
 .l_substream {
 	margin: 0 0 0 -40px;
 	width: 200px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 }
 
 .l_substream:hover {

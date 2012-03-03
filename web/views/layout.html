@@ -36,8 +36,9 @@
 						
 						<ul class="u_submenu">
 							
-						<% for ( i in LLconf.globals.streams ) { 
-							s = LLconf.globals.streams[i];
+						<% for ( s in LLconf.globals.streams ) { 
+							if ( !LLconf.globals.streams[s].enabled )
+								continue;
 						%>
 						
 							<li class="l_submenu" submenu="<%= s %>">

@@ -1,0 +1,169 @@
+<link type="text/css" rel="stylesheet" href="/css/settings.css"></link>
+<script type="text/javascript">
+	
+	function new_log(name, path, format, id){
+		return set_log_html = '<div class="logsclass" id="' + id + '">' +
+				'<input type="button" value="Del" class="del_button" onClick="del_log(\'' + id + '\')" />' +
+				'<div class="c_log_wrap">' +
+				'<label class="row_desc">Log name: </label><input class="logs_name" type="text" value="' + name + '"/>' +
+				'<label class="row_desc">Log path: </label><input class="logs_path" type="text" value="' + path + '"/>' +
+				'<label class="row_desc">Log format: </label><textarea class="logs_format">' + format + '</textarea>' +
+				'</div>'
+				'</div>';
+	}
+	
+	function add_log(){
+		$("#settings_logs").append(new_log('','','',"log" + ++l));
+	}
+	
+	function del_log(id){
+		$("#" + id).remove();
+	}
+	
+	function save_conf(){
+		tmp_conf = {
+		    "logs": [],
+		    "globals": {
+		        "web": {
+		            "bind": "",
+		            "port": 0,
+		            "views": "",
+		            "public": ""
+		        },
+		        "mongodb": {
+		            "host": "",
+		            "port": 0,
+		            "auth": false,
+		            "user": "",
+		            "pass": ""
+		        },
+		        "streams": []
+		    }
+		};
+		
+		
+		$(".c_log_wrap").each(function(index){
+			tmp_log = {};
+			tmp_log.name = $(this).children(".logs_name").val();
+			tmp_log.log_file = $(this).children(".logs_path").val();
+			tmp_log.log_format = $(this).children(".logs_path").val();
+			tmp_conf.logs.push(tmp_log);
+		});
+		
+		tmp_conf.globals.web.bind = $(".web_bind").val();
+		tmp_conf.globals.web.port = parseInt($(".web_port").val());
+		tmp_conf.globals.web.views = $(".web_viewspath").val();
+		tmp_conf.globals.web.public = $(".web_publicpath").val();
+		
+		tmp_conf.globals.mongodb.host = $(".mongo_host").val();
+		tmp_conf.globals.mongodb.port = parseInt($(".mongo_port").val());
+		
+		if ( $(".mondo_auth").attr('checked') == true ){
+			tmp_conf.globals.mongodb.auth = true;
+			tmp_conf.globals.mongodb.user = $(".mongo_user").val();
+			tmp_conf.globals.mongodb.pass = $(".mongo_pass").val();
+		}
+		
+		$(".stream_check").each(function(index){
+			tmp_stream = {};
+			tmp_stream[$(this).val()] = ( $(this).attr('checked') ) ? true : false;
+			tmp_conf.globals.streams.push(tmp_stream);
+		});
+		
+		
+		var request = $.ajax({
+  			url: "/settings.json",
+  			type: "POST",
+  			data: tmp_conf,
+  			dataType: "json",
+  			success: function(data){
+  				console.log(data);
+  			}
+		});
+		
+	}
+    	
+	$(document).ready(function(){
+		
+		var conf = <%- JSON.stringify(conf) %>;
+		var last = 0;
+		
+		for ( l in conf.logs ){		
+			$("#settings_logs").append(new_log(conf.logs[l].name, conf.logs[l].log_file, conf.logs[l].log_format, "log" + l));
+			last = l;
+		}
+		
+		$(".web_bind").val(conf.globals.web.bind);
+		$(".web_port").val(conf.globals.web.port);
+		$(".web_viewspath").val(conf.globals.web.views);
+		$(".web_publicpath").val(conf.globals.web.public);
+		
+		$(".mongo_host").val(conf.globals.mongodb.host);
+		$(".mongo_port").val(conf.globals.mongodb.port);
+		
+		if ( conf.globals.mongodb.auth ){
+			$(".mondo_auth").attr('checked', true);
+			
+			$(".mongo_user").removeAttr('disabled');
+			$(".mongo_user").val(conf.globals.mongodb.user);
+			
+			$(".mongo_port").removeAttr('disabled');
+			$(".mongo_port").val(conf.globals.mongodb.pass);	
+		}
+		
+		$(".mongo_auth").change(function(){
+			if ( $(this).attr('checked') ){
+				$(".mongo_user").removeAttr('disabled');
+				$(".mongo_pass").removeAttr('disabled');
+			} else {
+				$(".mongo_user").attr('disabled', 'disabled');
+				$(".mongo_pass").attr('disabled', 'disabled');
+			}
+		});
+		
+		for ( s in conf.globals.streams ){
+			$("#set_streams .sub_set").append(
+			'<label class="row_desc">' + s + '</label><input class="stream_check" type="checkbox" ' + 
+				( ( conf.globals.streams[s].enabled ) ? 'checked="true"' : "" ) + 
+			'" value="' + s + '" />'
+			);
+		}
+	});
+	
+</script>
+<div class="settings_wrap">
+	<div class="set_title">Logs</div><br />
+	<div id="settings_logs">
+
+	</div>
+	<input type="button" class="add_log" value="Add" onclick="add_log()"/>
+</div>
+
+<div class="settings_wrap">
+	<div class="set_title">Globals</div><br />
+	<div id="set_web">
+		<div class="set_title_sub">Web</div><br />
+		<div class="sub_set">
+			<label class="row_desc">Bind: </label><input class="web_bind" type="text" value=""/>
+			<label class="row_desc">Port: </label><input class="web_port" type="text" value=""/>
+			<label class="row_desc">Views path: </label><input class="web_viewspath" type="text" value=""/>
+			<label class="row_desc">Public path: </label><input class="web_publicpath" type="text" value=""/>
+		</div>
+	</div>
+	<div id="set_mongo">
+		<div class="set_title_sub">MongoDB</div><br />
+		<div class="sub_set">
+			<label class="row_desc">Host: </label><input class="mongo_host" type="text" value=""/>
+			<label class="row_desc">Port: </label><input class="mongo_port" type="text" value=""/>
+			<label class="row_desc">Auth: </label><input class="mongo_auth" type="checkbox" />
+			<label class="row_desc">User: </label><input disabled="disabled" class="mongo_user" type="text" value=""/>
+			<label class="row_desc">Password: </label><input disabled="disabled" class="mongo_pass" type="password" value=""/>
+		</div>
+	</div>
+	<div id="set_streams">
+		<div class="set_title_sub">Streams</div><br />
+		<div class="sub_set">
+		</div>
+	</div>
+	<input type="button" class="save_button" onclick="save_conf()" value="Save" />
+</div>

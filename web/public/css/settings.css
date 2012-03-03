@@ -1,0 +1,92 @@
+#settings_logs {
+	width: 100%;
+	margin: auto;
+}
+
+#set_web, #set_mongo, #set_streams {
+	margin-left: 15px;
+	margin-bottom: 15px;
+}
+
+.settings_wrap {
+	margin-top: 50px;
+}
+
+.add_log {
+	float: left;
+}
+
+.del_button {
+	float: left;
+}
+
+.set_title {
+	font-size: large;
+	font-weight: bold;
+	border-bottom: dotted thin black;
+	width: 100%;
+}
+
+.set_title_sub {
+	font-size: 15px;
+	font-weight: bold;
+	width: 200px;
+	border-bottom: thin dotted black;
+}
+
+.c_log_wrap {
+	margin: 10px 0 10px 100px;
+	border: dashed thin black;
+	padding: 3px;
+	width: 800px;
+}
+
+.row_desc {
+	font-weight: 100;
+	margin-top: 5px;
+	float: left;
+	width: 100px;
+}
+
+.logs_name {
+	width: 695px;
+	margin-right: 10px;
+}
+
+.logs_path {
+	width: 695px;
+}
+
+.sub_set {
+	margin-left: 10px;
+}
+
+.logs_format {
+	width: 695px;
+	height: 80px;
+	resize: none;
+}
+
+.mongo_auth, .stream_check {
+	margin-left: 100px;
+}
+
+.web_bind, .mongo_host {
+	width: 150px;
+}
+
+.web_port, .mongo_port {
+	width: 80px;
+}
+
+.web_publicpath {
+	width: 500px;
+}
+
+.web_viewspath {
+	width: 500px;
+}
+
+.save_button {
+	margin-left: 500px;
+}
