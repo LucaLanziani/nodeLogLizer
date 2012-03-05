@@ -1,6 +1,13 @@
 <link type="text/css" rel="stylesheet" href="/css/settings.css"></link>
 <script type="text/javascript">
 	
+	function restartll(){
+		$.getJSON("/reboot.json", function(data){
+			//document.location.href = "";
+			document.location.port = data.port;
+		});
+	}
+	
 	function new_log(name, path, format, id){
 		return set_log_html = '<div class="logsclass" id="' + id + '">' +
 				'<input type="button" value="Del" class="del_button" onClick="del_log(\'' + id + '\')" />' +
@@ -46,7 +53,7 @@
 			tmp_log = {};
 			tmp_log.name = $(this).children(".logs_name").val();
 			tmp_log.log_file = $(this).children(".logs_path").val();
-			tmp_log.log_format = $(this).children(".logs_path").val();
+			tmp_log.log_format = $(this).children(".logs_format").val();
 			tmp_conf.logs.push(tmp_log);
 		});
 		
@@ -72,7 +79,7 @@
 		var request = $.ajax({
   			url: "/settings.json",
   			type: "POST",
-  			data: tmp_conf,
+  			data: { conf : JSON.stringify(tmp_conf) },
   			dataType: "json",
   			success: function(data){
   				console.log(data);
@@ -164,4 +171,5 @@
 		</div>
 	</div>
 	<input type="button" class="save_button" onclick="save_conf()" value="Save" />
+	<input type="button" class="save_button" onclick="restartll()" value="Restart" />
 </div>

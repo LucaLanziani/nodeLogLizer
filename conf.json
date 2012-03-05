@@ -21,9 +21,15 @@
             "pass": ""
         },
         "streams": {
-        	"sample" : { "enabled" : true },
-        	"sample1": { "enabled" : true },
-        	"sample2": { "enabled" : false }
+            "sample": {
+                "enabled": true
+            },
+            "sample1": {
+                "enabled": true
+            },
+            "sample2": {
+                "enabled": false
+            }
         }
     }
 }
