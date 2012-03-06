@@ -1,0 +1,74 @@
+body {
+	font-family: "Andale Mono";
+}
+
+input[type="text"], input[type="password"] {
+	height: 30px;
+	width: 300px;
+	font-size: 25px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin: auto;
+}
+
+input[type="submit"] {
+	font-family: "Andale Mono";
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 4px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+input:focus {
+	border-color: #BBB;
+}
+
+.login {
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+}
+
+.submit {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60px;
+}
+
+.error_div {
+	margin: 5px auto;
+	text-align: center;
+	visibility: hidden;
+	color: red;
+	font-size: 13px;
+}
+
+#wrap_login {
+	margin: 10px auto;
+	width: 400px;
+	height: 260px;
+	border: thin solid #888;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-moz-box-shadow: 0 4px 10px 5px #888;
+	-webkit-box-shadow: 0 4px 10px 5px #888;
+	box-shadow: 0 4px 10px 5px #888;
+}
+
+#wrap_center {
+	margin: 0 auto;
+	width: 500px;
+}
+
+#logo {
+	margin: 0 auto;
+	width: 200px;
+	height: 150px;
+	background-image: url(/images/nll_logo.png);
+}

@@ -45,7 +45,7 @@
 	font-weight: 100;
 	margin-top: 5px;
 	float: left;
-	width: 100px;
+	width: 90px;
 }
 
 .logs_name {
@@ -87,6 +87,7 @@
 	width: 500px;
 }
 
-.save_button {
-	margin-left: 500px;
+.submit_box {
+	text-align: center;
+	margin: auto;
 }

@@ -149,20 +149,20 @@
 	<div id="set_web">
 		<div class="set_title_sub">Web</div><br />
 		<div class="sub_set">
-			<label class="row_desc">Bind: </label><input class="web_bind" type="text" value=""/>
-			<label class="row_desc">Port: </label><input class="web_port" type="text" value=""/>
-			<label class="row_desc">Views path: </label><input class="web_viewspath" type="text" value=""/>
-			<label class="row_desc">Public path: </label><input class="web_publicpath" type="text" value=""/>
+			<label class="row_desc">Bind: </label><input class="web_bind" type="text" value=""/><br />
+			<label class="row_desc">Port: </label><input class="web_port" type="text" value=""/><br />
+			<label class="row_desc">Views path: </label><input class="web_viewspath" type="text" value=""/><br />
+			<label class="row_desc">Public path: </label><input class="web_publicpath" type="text" value=""/><br />
 		</div>
 	</div>
 	<div id="set_mongo">
 		<div class="set_title_sub">MongoDB</div><br />
 		<div class="sub_set">
-			<label class="row_desc">Host: </label><input class="mongo_host" type="text" value=""/>
-			<label class="row_desc">Port: </label><input class="mongo_port" type="text" value=""/>
-			<label class="row_desc">Auth: </label><input class="mongo_auth" type="checkbox" />
-			<label class="row_desc">User: </label><input disabled="disabled" class="mongo_user" type="text" value=""/>
-			<label class="row_desc">Password: </label><input disabled="disabled" class="mongo_pass" type="password" value=""/>
+			<label class="row_desc">Host: </label><input class="mongo_host" type="text" value=""/><br />
+			<label class="row_desc">Port: </label><input class="mongo_port" type="text" value=""/><br />
+			<label class="row_desc">Auth: </label><input class="mongo_auth" type="checkbox" /><br />
+			<label class="row_desc">User: </label><input disabled="disabled" class="mongo_user" type="text" value=""/><br />
+			<label class="row_desc">Password: </label><input disabled="disabled" class="mongo_pass" type="password" value=""/><br />
 		</div>
 	</div>
 	<div id="set_streams">
@@ -170,6 +170,8 @@
 		<div class="sub_set">
 		</div>
 	</div>
-	<input type="button" class="save_button" onclick="save_conf()" value="Save" />
-	<input type="button" class="save_button" onclick="restartll()" value="Restart" />
+</div>
+<div class="submit_box">
+	<input type="button" class="save_button" onclick="save_conf()" value="Save"/>
+	<input type="button" class="save_button" onclick="restartll()" value="Restart"/>
 </div>

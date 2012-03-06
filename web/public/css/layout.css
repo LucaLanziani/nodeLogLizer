@@ -8,12 +8,14 @@ body {
 
 input[type="button"], input[type="password"], input[type="text"], textarea {
    	font-family: "Andale Mono";
+   	margin: 0;
     font-size: 13px;
     margin-bottom: 5px;
-    display: block;
     padding: 4px;
-    border: solid 1px #0066FF; 
-    background-color: #EDF2F7;
+    border: solid 1px #888; 
+    -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 input[type="checkbox"] {
@@ -22,6 +24,20 @@ input[type="checkbox"] {
     padding: 4px;
     background-color: #EDF2F7;
     display: block;
+    -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+input[type="submit"] {
+	font-family: "Andale Mono";
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+    padding: 4px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 #wrapper {
