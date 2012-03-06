@@ -57,6 +57,10 @@ input[type="checkbox"] {
 	background-image: url(/images/nll_logo.png);
 }
 
+#welc_msg {
+	margin: 10px 0 0 20px;
+}
+
 /* main menu */
 .u_menu {
 	top: 0;

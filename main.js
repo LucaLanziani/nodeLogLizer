@@ -13,14 +13,16 @@ var LogLizer_core 		= require("./lib/loglizer-core").LogLizer_core;			// require
 var LogLizer_web 		= require("./lib/loglizer-web").LogLizer_web;			// require web class
 var LogLizer_utils 		= require("./lib/loglizer-utils").LogLizer_utils;		// require utils class
 var LogLizer_streams 	= require("./lib/loglizer-streams").LogLizer_streams;	// require streams class
-var LogLizer_db 		= require("./lib/loglizer-db").LogLizer_db;				// require streams class
+var LogLizer_db 		= require("./lib/loglizer-db").LogLizer_db;				// require database class
+var LogLizer_users 		= require("./lib/loglizer-users").LogLizer_users;		// require database class
 /* end local require */
 
 /* global instance */
-global.LLdb 			= new LogLizer_db(LLconf.globals.mongodb);
+global.LLdb 			= new LogLizer_db();
 global.LLutils 			= new LogLizer_utils();										// global instance for utils
 global.LLweb 			= new LogLizer_web(LLconf.globals);							// global instance for web server
 global.LLstreams 		= new LogLizer_streams(LLconf.globals);						// global instance for streams
+global.LLusers			= new LogLizer_users(LLconf.globals.mongodb);
 global.LLcores 			= [];	
 /* end global instance */
 

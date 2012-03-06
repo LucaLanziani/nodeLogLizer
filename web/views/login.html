@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+			body {
+				font-family: "Andale Mono";
+			}
+			
+			input[type="text"], input[type="password"] {
+				height: 50px;
+				width: 300px;
+				font-size: 30px;
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				border-radius: 3px;
+				margin: auto;
+			}
+			
+			input[type="submit"] {
+				font-family: "Andale Mono";
+			    font-size: 13px;
+			    margin-bottom: 5px;
+			    display: block;
+			    padding: 4px;
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				border-radius: 3px;
+			}
+			
+			input:focus {
+				border-color: #BBB;
+			}
+			
+			.login {
+				margin-top: 30px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 300px;
+			}
+			
+			.submit {
+				margin-top: 10px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 60px;
+			}
+			
+			#wrap_login {
+				margin: 10px auto;
+				width: 400px;
+				height: 300px;
+				border: thin solid #888;
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				-moz-box-shadow: 0 4px 10px 5px #888;
+				-webkit-box-shadow: 0 4px 10px 5px #888;
+				box-shadow: 0 4px 10px 5px #888;
+			}
+			
+			#wrap_center {
+				margin: 0 auto;
+				width: 500px;
+			}
+			
+			#logo {
+				margin: 0 auto;
+				width: 200px;
+				height: 150px;
+				background-image: url(/images/nll_logo.png);
+			}
+		</style>
+		
+		<script type="text/javascript">
+			var error = <%= error %>;
+			console.log(typeof error);
+			console.log(error);
+		</script>
+	
+	</head>
+	
+	<body>
+		<div id="wrap_center">
+			<div id="logo"></div>
+			<div id="wrap_login">
+				<form id="form_login" name="formlogin" method="post">
+				
+					<div class="login">
+						Username
+						<input type="text" name="user" />
+					</div>
+				
+					<div class="login">
+						Password
+						<input type="password" name="pass" />
+					</div>
+					<br />
+					<div class="submit">
+						<input type="submit" name="submit" value="Submit"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
